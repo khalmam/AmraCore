@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Setup and Notification Guide – ERPNext (VHD)</title>
+    <style>
+        @media print {
+            body { margin: 0; }
+            .page-break { page-break-before: always; }
+            button { display: none; }
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: #1e40af;
+            margin: 0 0 10px 0;
+            font-size: 28px;
+        }
+        
+        .header p {
+            color: #64748b;
+            margin: 5px 0;
+        }
+        
+        h2 {
+            color: #1e40af;
+            border-left: 4px solid #2563eb;
+            padding-left: 15px;
+            margin-top: 30px;
+            font-size: 20px;
+        }
+        
+        h3 {
+            color: #475569;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        
+        th, td {
+            border: 1px solid #e2e8f0;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        th {
+            background: #f1f5f9;
+            color: #1e40af;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .tip-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .tip-box strong {
+            color: #92400e;
+        }
+        
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .code {
+            background: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        
+        ul, ol {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .download-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .download-btn:hover {
+            background: #1d4ed8;
+        }
+        
+        .checkmark {
+            color: #16a34a;
+        }
+        
+        .crossmark {
+            color: #dc2626;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <button class="download-btn" onclick="window.print()">📄 Download PDF</button>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Email Setup and Notification Guide</h1>
+            <p><strong>ERPNext (VHDO)</strong></p>
+            <p>Complete Configuration for Email Accounts and System Notifications</p>
+        </div>
+
+        <h2>1. Overview</h2>
+        <p>This guide covers the complete configuration of email accounts in VHD ERPNext, including sending and receiving emails, managing automated system notifications, and additional real-world use cases for email profiles.</p>
+
+        <h2>2. Accessing the System</h2>
+        <ul>
+            <li><strong>URL:</strong> <span class="code">https://erp.vhdo.org</span></li>
+            <li><strong>Login:</strong> Use your assigned credentials</li>
+        </ul>
+
+        <h2>3. Setting Up an Email Account</h2>
+        
+        <h3>Step 1: Navigate to Email Accounts</h3>
+        <ol>
+            <li>Go to <strong>Settings → Email Account</strong></li>
+            <li>Click <strong>New</strong></li>
+        </ol>
+
+        <h3>Step 2: Configure the Email Account</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Email ID</td>
+                    <td>Sender email address</td>
+                    <td>noreply@vhdo.org</td>
+                </tr>
+                <tr>
+                    <td>Password / App Password</td>
+                    <td>Secure app password from your email provider</td>
+                    <td>(Generated from Gmail/Yahoo/etc.)</td>
+                </tr>
+                <tr>
+                    <td>Domain Name</td>
+                    <td>Your mail domain</td>
+                    <td>vhdo.org</td>
+                </tr>
+                <tr>
+                    <td>SMTP Server</td>
+                    <td>Outgoing mail server</td>
+                    <td>smtp.gmail.com or mail.vhdo.org</td>
+                </tr>
+                <tr>
+                    <td>Use TLS</td>
+                    <td>Enable for secure connection</td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Port</td>
+                    <td>Outgoing port</td>
+                    <td>587</td>
+                </tr>
+                <tr>
+                    <td>Enable Outgoing</td>
+                    <td>Required to send emails</td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Enable Incoming</td>
+                    <td>Disable for no-reply accounts</td>
+                    <td><span class="crossmark">✗</span> (for noreply@)</td>
+                </tr>
+                <tr>
+                    <td>Always Use Account Email ID as Sender</td>
+                    <td>Ensures consistent sender branding</td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Default Outgoing</td>
+                    <td>Use for system messages</td>
+                    <td><span class="checkmark">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Attachment Limit</td>
+                    <td>Max file size (optional)</td>
+                    <td>25 MB</td>
+                </tr>
+                <tr>
+                    <td>Sender Name</td>
+                    <td>Display name in recipient inbox</td>
+                    <td>VHD Organization</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Click <strong>Save</strong></p>
+
+        <h3>Step 3: Test the Connection</h3>
+        <ol>
+            <li>After saving, click <strong>Send Test Email</strong></li>
+            <li>Enter a personal email (e.g., your Gmail)</li>
+            <li>Success = Email received in inbox</li>
+        </ol>
+
+        <div class="page-break"></div>
+
+        <h2>4. How to Use</h2>
+        
+        <h3>A. Sending Emails</h3>
+        <p>Users can send emails directly from:</p>
+        <ul>
+            <li>Any document form (e.g., Sales Invoice → Email icon)</li>
+            <li>The Communication panel</li>
+            <li>Automated system notifications</li>
+        </ul>
+        <p>All outgoing emails appear as: <span class="code">VHD Organization &lt;noreply@vhdo.org&gt;</span></p>
+
+        <h3>B. Receiving Emails</h3>
+        <p><strong>No-reply accounts (noreply@vhdo.org):</strong></p>
+        <ul>
+            <li>→ Disable Incoming and auto-replies</li>
+        </ul>
+        <p><strong>Support or contact addresses (e.g., support@vhdo.org):</strong></p>
+        <ul>
+            <li>→ Enable Incoming</li>
+            <li>→ Configure IMAP:</li>
+        </ul>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Setting</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IMAP Server</td>
+                    <td>imap.gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Port</td>
+                    <td>993</td>
+                </tr>
+                <tr>
+                    <td>SSL</td>
+                    <td><span class="checkmark">✓</span> Enabled</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>ERPNext automatically links incoming emails to:</p>
+        <ul>
+            <li>Related documents (Tickets, Issues, Tasks)</li>
+            <li>Communication Log</li>
+        </ul>
+
+        <h2>5. Event Notifications in ERPNext</h2>
+        <p>ERPNext sends automatic email alerts for key events using your configured email profile.</p>
+        
+        <h3>Common System Notifications</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Example Subject</th>
+                    <th>Trigger</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>New User</td>
+                    <td>"Welcome to VHD ERP"</td>
+                    <td>User created</td>
+                </tr>
+                <tr>
+                    <td>Password Reset</td>
+                    <td>Reset link sent</td>
+                    <td>User requests reset</td>
+                </tr>
+                <tr>
+                    <td>Task Assignment</td>
+                    <td>"You've been assigned a task"</td>
+                    <td>Task/Project assignment</td>
+                </tr>
+                <tr>
+                    <td>Document Submission</td>
+                    <td>"New Purchase Order Submitted"</td>
+                    <td>Document submitted</td>
+                </tr>
+                <tr>
+                    <td>Approval Required</td>
+                    <td>"Approval Needed"</td>
+                    <td>Workflow action</td>
+                </tr>
+                <tr>
+                    <td>Comment Added</td>
+                    <td>"A comment was added"</td>
+                    <td>User comments</td>
+                </tr>
+                <tr>
+                    <td>System Error</td>
+                    <td>"Email Queue Failed"</td>
+                    <td>Admin alert</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Manage Notifications</h3>
+        <p>→ <strong>Settings → Notifications</strong></p>
+        
+        <h3>Create Custom Notifications</h3>
+        <ol>
+            <li>Go to <strong>Settings → Notification</strong></li>
+            <li>Click <strong>New</strong></li>
+            <li>Select Doctype (e.g., Task, Sales Invoice)</li>
+            <li>Choose Trigger (On Creation, On Update, etc.)</li>
+            <li>Write your message</li>
+            <li>Select Channel: <strong>Email</strong></li>
+            <li>Save</li>
+        </ol>
+
+        <div class="page-break"></div>
+
+        <h2>6. Additional Use Cases for Email Profiles</h2>
+        <p>Leverage multiple email accounts to streamline operations and enhance professionalism.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Use Case</th>
+                    <th>Email Example</th>
+                    <th>Configuration Tips</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Transactional Emails</td>
+                    <td>noreply@vhdo.org</td>
+                    <td>Default outgoing, disable incoming, high attachment limit</td>
+                </tr>
+                <tr>
+                    <td>Customer Support</td>
+                    <td>support@vhdo.org</td>
+                    <td>Enable IMAP + auto-link to Support Ticket</td>
+                </tr>
+                <tr>
+                    <td>Sales & Invoicing</td>
+                    <td>sales@vhdo.org</td>
+                    <td>Use in Quotation → Email, branded templates</td>
+                </tr>
+                <tr>
+                    <td>HR & Payroll</td>
+                    <td>hr@vhdo.org</td>
+                    <td>Send payslips, leave approvals, onboarding</td>
+                </tr>
+                <tr>
+                    <td>Purchase & Vendor Comms</td>
+                    <td>procurement@vhdo.org</td>
+                    <td>Auto-send Purchase Orders, track replies</td>
+                </tr>
+                <tr>
+                    <td>Marketing Campaigns</td>
+                    <td>news@vhdo.org</td>
+                    <td>Use Email Campaign module, track opens</td>
+                </tr>
+                <tr>
+                    <td>Internal Alerts</td>
+                    <td>alerts@vhdo.org</td>
+                    <td>Low stock, overdue tasks, system health</td>
+                </tr>
+                <tr>
+                    <td>Domain-Specific Branding</td>
+                    <td>usa@vhdo.org, eu@vhdo.org</td>
+                    <td>Regional compliance, localized sender</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <strong>Pro Tip:</strong> Create one email account per function and set "Always Use Account Email as Sender" to avoid mixed branding.
+        </div>
+
+        <h2>7. Tips & Best Practices</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tip</th>
+                    <th>Why</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Use App Passwords</td>
+                    <td>Never use personal login passwords</td>
+                </tr>
+                <tr>
+                    <td>Disable Incoming for No-Reply</td>
+                    <td>Prevents spam and confusion</td>
+                </tr>
+                <tr>
+                    <td>Enable "Always Use Account Email as Sender"</td>
+                    <td>Ensures brand consistency</td>
+                </tr>
+                <tr>
+                    <td>Check Email Queue Regularly</td>
+                    <td>Monitor pending/failed emails: Settings → Email Queue</td>
+                </tr>
+                <tr>
+                    <td>Use Email Templates</td>
+                    <td>Go to Email Template doctype for reusable content</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>8. Troubleshooting</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Issue</th>
+                    <th>Possible Cause</th>
+                    <th>Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Authentication Unsuccessful</td>
+                    <td>Wrong password or TLS mismatch</td>
+                    <td>Regenerate app password; verify TLS/port</td>
+                </tr>
+                <tr>
+                    <td>Email Delay</td>
+                    <td>Worker not running</td>
+                    <td>Run: bench start or enable background workers</td>
+                </tr>
+                <tr>
+                    <td>Sends from Admin Email</td>
+                    <td>Default outgoing not set</td>
+                    <td>Enable Default Outgoing on noreply@vhdo.org</td>
+                </tr>
+                <tr>
+                    <td>Email Not Received</td>
+                    <td>Spam filters or DNS issues</td>
+                    <td>Check spam folder; verify SPF/DKIM records</td>
+                </tr>
+                <tr>
+                    <td>Wrong Sender in Templates</td>
+                    <td>Account not linked</td>
+                    <td>Set correct Email Account in Print Format or Email Template</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="footer">
+            <p><strong>VHD ERPNext Documentation</strong></p>
+            <p>For support, contact your system administrator or visit https://erp.vhdo.org</p>
+        </div>
+    </div>
+</body>
+</html>
